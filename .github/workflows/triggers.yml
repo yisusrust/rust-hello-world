@@ -14,6 +14,7 @@ env:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -26,9 +27,31 @@ jobs:
     - name: Build
       run: cargo build --verbose
       working-directory: /home/runner/work/rust-hello-world/rust-hello-world/hello_github_actions
+    
+  test:
+    name: Testing by comment
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Rust
+      uses: ATiltedTree/setup-rust@v1
+      with:
+        rust-version: stable
     - name: Run tests
       run: cargo test --verbose
       working-directory: /home/runner/work/rust-hello-world/rust-hello-world/hello_github_actions
+  
+  run_comment:
+    needs: [build, test]
+    name: Run by coment
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Rust
+      uses: ATiltedTree/setup-rust@v1
+      with:
+        rust-version: stable
     - name: run
       run: cargo run
       working-directory: /home/runner/work/rust-hello-world/rust-hello-world/hello_github_actions
