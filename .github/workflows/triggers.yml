@@ -7,16 +7,14 @@ on:
   pull_request:
     branches: 
       - "aprendiendo-**" 
-  issue_comment
+  issue_comment:
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Move to directory
@@ -28,15 +26,17 @@ jobs:
     - name: run
       run: cargo run
   
-  pr_commented:
-    name: 'PR comented'
+  check_comment:
+    name: Check comment
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Move to directory
-      run: cd hello_github_actions
-    - name: Run tests
-      run: cargo test --verbose
-    - name: run
-      run: cargo run
+      - uses: actions/checkout@v3
+      - name: Move to directory
+        run: cd hello_github_actions
+      - name: Build
+        run: cargo build --verbose
+      - name: Run tests
+        run: cargo test --verbose
+      - name: run
+        run: cargo run
