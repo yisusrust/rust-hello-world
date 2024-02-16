@@ -17,14 +17,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Move to directory
-      run: cd hello_github_actions
+    - name: Set up Rust
+      uses: actions/setup-rust@v1
+      with:
+        profile: minimal
+        rust-version: 1.56.0
+    - name: Determine relative path
+      run: echo "Relative path: ${{ github.workspace }}"
     - name: Build
       run: cargo build --verbose
+      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
     - name: Run tests
       run: cargo test --verbose
+      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
     - name: run
       run: cargo run
+      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
+
   
   check_comment:
     name: Check comment
@@ -32,11 +41,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Move to directory
-        run: cd hello_github_actions
-      - name: Build
-        run: cargo build --verbose
-      - name: Run tests
-        run: cargo test --verbose
-      - name: run
-        run: cargo run
+      - name: Set up Rust
+        uses: actions/setup-rust@v1
+        with:
+          profile: minimal
+          rust-version: 1.56.0
+    - name: Determine relative path
+      run: echo "Relative path: ${{ github.workspace }}"
+    - name: Build
+      run: cargo build --verbose
+      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
+    - name: Run tests
+      run: cargo test --verbose
+      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
+    - name: run
+      run: cargo run
+      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
