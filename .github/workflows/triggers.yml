@@ -34,7 +34,7 @@ jobs:
       run: cargo run
       working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
 
-  check_comment:
+  check-comment:
     name: Check comment
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
