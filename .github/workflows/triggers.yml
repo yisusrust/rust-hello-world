@@ -23,7 +23,7 @@ jobs:
         profile: minimal
         rust-version: 1.56.0
     - name: Determine relative path
-      run: echo "Relative path: $GITHUB_WORKSPACE"
+      run: echo "Relative path $GITHUB_WORKSPACE"
     - name: Build
       run: cargo build --verbose
       working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
@@ -47,7 +47,7 @@ jobs:
           profile: minimal
           rust-version: 1.56.0
     - name: Determine relative path
-      run: echo "Relative path: $GITHUB_WORKSPACE"
+      run: echo "Relative path $GITHUB_WORKSPACE"
     - name: Build
       run: cargo build --verbose
       working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
