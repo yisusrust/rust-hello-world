@@ -18,10 +18,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up Rust
-      uses: actions/setup-rust@v1
+      uses: ATiltedTree/setup-rust@v1
       with:
-        profile: minimal
-        rust-version: 1.56.0
+        rust-version: stable
     - name: Determine relative path
       run: echo "Relative path $GITHUB_WORKSPACE"
     - name: Build
@@ -33,4 +32,3 @@ jobs:
     - name: run
       run: cargo run
       working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
-      
