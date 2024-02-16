@@ -23,16 +23,16 @@ jobs:
         profile: minimal
         rust-version: 1.56.0
     - name: Determine relative path
-      run: echo "Relative path: ${{ github.workspace }}"
+      run: echo "Relative path: $GITHUB_WORKSPACE"
     - name: Build
       run: cargo build --verbose
-      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
+      working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
     - name: Run tests
       run: cargo test --verbose
-      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
+      working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
     - name: run
       run: cargo run
-      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
+      working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
 
   
   check_comment:
@@ -47,13 +47,13 @@ jobs:
           profile: minimal
           rust-version: 1.56.0
     - name: Determine relative path
-      run: echo "Relative path: ${{ github.workspace }}"
+      run: echo "Relative path: $GITHUB_WORKSPACE"
     - name: Build
       run: cargo build --verbose
-      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
+      working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
     - name: Run tests
       run: cargo test --verbose
-      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
+      working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
     - name: run
       run: cargo run
-      working-directory: ${{ github.workspace }}/rust-hello-world/hello_github_actions
+      working-directory: $GITHUB_WORKSPACE/rust-hello-world/hello_github_actions
