@@ -1,4 +1,4 @@
-name: Rust
+name: Triggers runnning
 
 on: 
   push:
