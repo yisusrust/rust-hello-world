@@ -16,11 +16,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Move to directory
-      run: cd hello_github_actions
+    - name: Set up Rust
+      uses: ATiltedTree/setup-rust@v1
+      with:
+        rust-version: stable
     - name: Build
       run: cargo build --verbose
+      working-directory: /home/runner/work/rust-hello-world/rust-hello-world/hello_github_actions
     - name: Run tests
       run: cargo test --verbose
+      working-directory: /home/runner/work/rust-hello-world/rust-hello-world/hello_github_actions
     - name: run
       run: cargo run
+      working-directory: /home/runner/work/rust-hello-world/rust-hello-world/hello_github_actions
