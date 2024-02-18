@@ -17,4 +17,4 @@ jobs:
     name: Showing the commit message
     steps:
       - name: Showing the commit message
-        run: echo "Commit message: ${{ github.event.head_commit.message }}"
+        run: echo "Commit message ${{ github.event.head_commit.message }}"
