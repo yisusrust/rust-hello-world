@@ -1,0 +1,20 @@
+name: Testing contextos
+run-name: Vamos a probar el primer contexto
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  branch:
+    runs-on: ubuntu-latest
+    name: Running on branch
+    steps:
+      - name: Running on branch
+        run: echo "Running on branch ${{ github.ref_name }}"
+  
+  commit:
+    runs-on: ubuntu-latest
+    name: Showing the commit message
+    steps:
+      - name: Showing the commit message
+        run: echo "Commit message: ${{ github.event.head_commit.message }}"
