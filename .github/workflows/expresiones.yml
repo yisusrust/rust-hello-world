@@ -1,0 +1,37 @@
+name: Expressiones
+run-name: Aprendiendo a manejar expresiones
+
+on:
+  workflow_dispatch:
+    inputs:
+      velocidad:
+        description: 'Velocidad'
+        required: true
+        type: integer
+      vehiculo:
+        description: 'Vehiculo'
+        required: true
+        type: string
+  push:
+    branches:
+      - main 
+
+jobs:
+  moto:
+    if: ${{ inputs.vehiculo == 'moto' || contains(inputs.vehiculo, 'moto') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running for moto
+        run: echo "${{ inputs.vehiculo }} fue el vehiculo elegido"
+  carro:
+    if: ${{ inputs.vehiculo != 'moto' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running for vehiculo diferente
+        run: echo "${{ inputs.vehiculo }}, que es difrente a una moto"
+  velocidad:
+    if: ${{ inputs.velocidad > 0 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running velocidad
+        run: echo "${{ inputs.velocidad }}, pero se estaba moviendo a esa velocidad."
