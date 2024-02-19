@@ -24,8 +24,8 @@ jobs:
         env: 
           STEP: 1
         run: 
-          - echo "Showing variables ${{ env.STEP }} or $STEP"
-          - echo "Showing variables ${{ env.TESTING }} or $TESTING"
-          - echo "Showing variables ${{ env.JOB }} or $JOB"
+          - echo "Showing variables $STEP"
+          - echo "Showing variables $TESTING"
+          - echo "Showing variables $JOB"
           - echo "Showing variables ${{ secrets.SECRET_NAME }}"
           - echo "Showing variables ${{ env.VERSION }} or $VERSION"
