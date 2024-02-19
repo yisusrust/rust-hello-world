@@ -20,12 +20,15 @@ jobs:
     steps:
       - name: Running on branch
         run: echo "Running on branch ${{ github.ref_name }}"
-      - name: Showing variables
+      - name: Showing step
         env: 
           STEP: 1
-        run: 
-          - echo "Showing variables $STEP"
-          - echo "Showing variables $TESTING"
-          - echo "Showing variables $JOB"
-          - echo "Showing variables ${{ secrets.SECRET_NAME }}"
-          - echo "Showing variables ${{ env.VERSION }} or $VERSION"
+        run: echo "Showing variables $STEP"
+      - name: Showing testing
+        run: echo "Showing variables $TESTING"
+      - name: Showing job
+        run: echo "Showing variables $JOB"
+      - name: Showing secret name
+        run: echo "Showing variables ${{ secrets.SECRET_NAME }}"
+      - name: Showing version
+        run: echo "Showing variables ${{ env.VERSION }}"
