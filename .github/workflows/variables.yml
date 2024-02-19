@@ -31,4 +31,4 @@ jobs:
       - name: Showing secret name
         run: echo "Showing variables ${{ secrets.SECRET_NAME }}"
       - name: Showing version
-        run: echo "Showing variables ${{ env.VAR_VER }} "
+        run: echo "Showing variables ${{ vars.VAR_VER }} ${{ vars.VERSION }}"
