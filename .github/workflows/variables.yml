@@ -1,0 +1,30 @@
+name: Learning variables
+run-name: Learning to user ariables
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      - aprendiendo-github-actions
+
+env:
+  TESTING: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env: 
+      JOB: build
+    steps:
+      - name: Running on branch
+        run: echo "Running on branch ${{ github.ref_name }}"
+      _ name: Showing variables
+        env: 
+          STEP: 1
+        run: 
+          - echo "Showing variables ${{ env.STEP }} or $STEP"
+          - echo "Showing variables ${{ env.TESTING }} or $TESTING"
+          - echo "Showing variables ${{ env.JOB }} or $JOB"
+          - echo "Showing variables ${{ secrets.SECRET_NAME }}"
+          - echo "Showing variables ${{ env.VERSION }} or $VERSION"
