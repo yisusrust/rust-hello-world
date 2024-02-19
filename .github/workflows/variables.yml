@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       JOB: build
-    name: buildingß
+    name: building
     steps:
       - name: Running on branch
         run: echo "Running on branch ${{ github.ref_name }}"
-      _ name: Showing variables
+      - name: Showing variables
         env: 
           STEP: 1
         run: 
